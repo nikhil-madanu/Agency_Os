@@ -218,11 +218,11 @@ const chatMessages = [
 // ─── Tiny Section Header ──────────────────────────────────────────────────
 function SectionHeader({ label, linkLabel }: { label: string; linkLabel?: string }) {
   return (
-    <div className="flex items-center justify-between mb-3">
-      <h2 className="text-[15px] font-bold text-[#0F172A]">{label}</h2>
+    <div className="flex items-center justify-between mb-4">
+      <h2 className="text-[18px] font-bold text-[#0F172A]">{label}</h2>
       {linkLabel && (
-        <a href="#" className="text-[11px] font-semibold text-[#2B3674] border border-[#E2E8F0] flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-[#EEF3FF] transition-colors">
-          {linkLabel} <ChevronRight className="w-3 h-3" />
+        <a href="#" className="text-[13px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] flex items-center gap-1.5 px-3.5 py-1.5 rounded-full hover:bg-[#F0F9FF] transition-colors">
+          {linkLabel} <ChevronRight className="w-3.5 h-3.5" />
         </a>
       )}
     </div>
@@ -502,37 +502,37 @@ export default function App() {
                 {/* ══════════════════════════════════════════════════════════
                     SECTION 2 — ALERT STRIP
                     ══════════════════════════════════════════════════════════ */}
-                <div className="relative z-20 mt-5 px-1">
-                  <div className="rounded-[20px] border border-[#E2E8F0] bg-white p-5 shadow-[0_2px_8px_rgba(15,23,42,0.04)]">
+                <div className="relative z-20 mt-6 px-1">
+                  <div className="rounded-[20px] border border-[#E2E8F0] bg-white p-6 shadow-[0_2px_8px_rgba(15,23,42,0.04)]">
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center">
-                          <AlertTriangle className="w-4 h-4 text-[#0F172A]" strokeWidth={2} />
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center">
+                          <AlertTriangle className="w-5 h-5 text-[#0F172A]" strokeWidth={2} />
                         </div>
-                        <span className="text-[16px] font-bold text-[#0F172A]">Alerts & Urgent Actions</span>
+                        <span className="text-[18px] font-bold text-[#0F172A]">Alerts & Urgent Actions</span>
                       </div>
-                      <a href="#" className="flex items-center gap-1.5 text-[12px] font-semibold text-[#0F172A] border border-[#E2E8F0] px-3.5 py-1.5 rounded-full hover:bg-[#F7F8FC] transition-colors">
-                        5 alerts <ChevronRight className="w-3.5 h-3.5" />
+                      <a href="#" className="flex items-center gap-1.5 text-[13px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] px-4 py-2 rounded-full hover:bg-[#F0F9FF] transition-colors">
+                        5 alerts <ChevronRight className="w-4 h-4" />
                       </a>
                     </div>
                     {/* Alert cards — horizontal row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                       {alerts.map((a) => (
-                        <div key={a.id} className={`${a.bg} ${a.border} border rounded-[16px] p-4 flex flex-col gap-2 hover:shadow-[0_2px_8px_rgba(15,23,42,0.08)] transition-shadow`}>
+                        <div key={a.id} className={`${a.bg} ${a.border} border rounded-[16px] p-5 flex flex-col gap-2.5 hover:shadow-[0_2px_8px_rgba(15,23,42,0.08)] transition-shadow`}>
                           {/* Icon row + count badge */}
-                          <div className="flex items-start justify-between">
-                            <div className={`w-9 h-9 rounded-[10px] ${a.iconBg} flex items-center justify-center flex-shrink-0`}>
-                              <a.icon className="w-4.5 h-4.5" style={{ color: a.iconColor, width: 18, height: 18 }} strokeWidth={2} />
+                          <div className="flex items-start justify-between mb-1">
+                            <div className={`w-10 h-10 rounded-[10px] ${a.iconBg} flex items-center justify-center flex-shrink-0`}>
+                              <a.icon className="w-5 h-5" style={{ color: a.iconColor }} strokeWidth={2} />
                             </div>
-                            <span className={`text-[14px] font-bold ${a.countColor}`}>{a.count}</span>
+                            <span className={`text-[18px] font-bold ${a.countColor}`}>{a.count}</span>
                           </div>
                           {/* Label */}
-                          <span className="text-[12px] font-bold text-[#0F172A] leading-tight">{a.label}</span>
+                          <span className="text-[14px] font-bold text-[#0F172A] leading-tight">{a.label}</span>
                           {/* Message */}
-                          <p className="text-[11px] text-[#64748B] font-medium leading-snug whitespace-pre-line">{a.msg}</p>
+                          <p className="text-[13px] text-[#64748B] font-medium leading-snug whitespace-pre-line">{a.msg}</p>
                           {/* Link */}
-                          <a href="#" className="text-[11px] font-bold hover:underline mt-auto" style={{ color: a.linkColor }}>{a.link}</a>
+                          <a href="#" className="text-[13px] font-bold hover:underline mt-auto pt-2" style={{ color: a.linkColor }}>{a.link}</a>
                         </div>
                       ))}
                     </div>
@@ -542,171 +542,171 @@ export default function App() {
                 {/* ══════════════════════════════════════════════════════════
                     SECTION 4 — TODAY'S PRIORITY LIST
                     ══════════════════════════════════════════════════════════ */}
-                <div className="relative z-20 mt-5 px-1">
+                <div className="relative z-20 mt-6 px-1">
                   <SectionHeader label="Today's Priority List" linkLabel="View all tasks" />
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
                     {/* ── Col 1 — Action Required ── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden">
                       {/* Column header */}
-                      <div className="px-5 pt-5 pb-3 border-b-2 border-[#DC2626]">
+                      <div className="px-6 pt-6 pb-4 border-b-2 border-[#DC2626]">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-[10px] bg-[#FEF2F2] flex items-center justify-center flex-shrink-0">
-                            <AlertTriangle className="w-4 h-4 text-[#DC2626]" strokeWidth={2} />
+                          <div className="w-9 h-9 rounded-[10px] bg-[#FEF2F2] flex items-center justify-center flex-shrink-0">
+                            <AlertTriangle className="w-5 h-5 text-[#DC2626]" strokeWidth={2} />
                           </div>
-                          <span className="text-[13px] font-bold text-[#0F172A]">Action Required</span>
-                          <span className="ml-auto text-[11px] font-bold text-[#DC2626] bg-[#FEF2F2] px-2 py-0.5 rounded-full">{actionItems.length} items</span>
+                          <span className="text-[15px] font-bold text-[#0F172A]">Action Required</span>
+                          <span className="ml-auto text-[13px] font-bold text-[#DC2626] bg-[#FEF2F2] px-2.5 py-1 rounded-full">{actionItems.length} items</span>
                         </div>
                       </div>
                       {/* Items */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9]">
                         {actionItems.map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#F7F8FC] transition-colors group">
+                          <div key={i} className="flex items-center gap-4 px-6 py-4 hover:bg-[#F7F8FC] transition-colors group">
                             {/* Left icon */}
-                            <div className="w-8 h-8 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
-                              {item.type === "invoice"  && <AlertTriangle className="w-3.5 h-3.5 text-[#DC2626]" strokeWidth={2} />}
-                              {item.type === "leave"    && <Clock className="w-3.5 h-3.5 text-[#F59E0B]" strokeWidth={2} />}
-                              {item.type === "blocked"  && <Circle className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "message"  && <MessageSquare className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "contract" && <FileSignature className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
+                            <div className="w-10 h-10 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
+                              {item.type === "invoice"  && <AlertTriangle className="w-4.5 h-4.5 text-[#DC2626]" strokeWidth={2} />}
+                              {item.type === "leave"    && <Clock className="w-4.5 h-4.5 text-[#F59E0B]" strokeWidth={2} />}
+                              {item.type === "blocked"  && <Circle className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "message"  && <MessageSquare className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "contract" && <FileSignature className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
                             </div>
                             {/* Content */}
-                            <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                            <div className="flex flex-col gap-1 flex-1 min-w-0">
                               {item.type === "invoice" && <>
                                 <div className="flex items-center">
-                                  <span className="text-[12px] font-bold text-[#0F172A]">{item.client}</span>
-                                  <span className="ml-auto text-[12px] font-bold text-[#DC2626]">{item.amount}</span>
+                                  <span className="text-[14px] font-bold text-[#0F172A]">{item.client}</span>
+                                  <span className="ml-auto text-[14px] font-bold text-[#DC2626]">{item.amount}</span>
                                 </div>
-                                <span className="text-[10px] text-[#94A3B8]">{item.days} days overdue</span>
-                                <button className="self-start text-[10px] font-bold text-[#DC2626] hover:underline mt-0.5">Send Reminder</button>
+                                <span className="text-[12px] text-[#64748B]">{item.days} days overdue</span>
+                                <button className="self-start text-[12px] font-bold text-[#DC2626] hover:underline mt-1">Send Reminder</button>
                               </>}
                               {item.type === "leave" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.name}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.dates} · {item.kind}</span>
-                                <button className="self-start text-[10px] font-bold text-[#2B3674] hover:underline mt-0.5">Approve / Reject</button>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.name}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.dates} · {item.kind}</span>
+                                <button className="self-start text-[12px] font-bold text-[#0EA5E9] hover:underline mt-1">Approve / Reject</button>
                               </>}
                               {item.type === "blocked" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.task}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.project} · {item.member}</span>
-                                <button className="self-start text-[10px] font-bold text-[#2B3674] hover:underline mt-0.5">View</button>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.task}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.project} · {item.member}</span>
+                                <button className="self-start text-[12px] font-bold text-[#0EA5E9] hover:underline mt-1">View</button>
                               </>}
                               {item.type === "message" && <>
                                 <div className="flex items-center">
-                                  <span className="text-[12px] font-bold text-[#0F172A]">{item.client}</span>
-                                  <span className="ml-auto text-[10px] text-[#94A3B8]">{item.time}</span>
+                                  <span className="text-[14px] font-bold text-[#0F172A]">{item.client}</span>
+                                  <span className="ml-auto text-[12px] text-[#64748B]">{item.time}</span>
                                 </div>
-                                <span className="text-[10px] text-[#94A3B8] truncate">{item.preview}</span>
-                                <button className="self-start text-[10px] font-bold text-[#2B3674] hover:underline mt-0.5">Reply</button>
+                                <span className="text-[12px] text-[#64748B] truncate">{item.preview}</span>
+                                <button className="self-start text-[12px] font-bold text-[#0EA5E9] hover:underline mt-1">Reply</button>
                               </>}
                               {item.type === "contract" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.name}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.client}</span>
-                                <button className="self-start text-[10px] font-bold text-[#2B3674] hover:underline mt-0.5">Review</button>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.name}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.client}</span>
+                                <button className="self-start text-[12px] font-bold text-[#0EA5E9] hover:underline mt-1">Review</button>
                               </>}
                             </div>
                             {/* Chevron */}
-                            <ChevronRight className="w-4 h-4 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#2B3674] transition-colors" strokeWidth={2} />
+                            <ChevronRight className="w-5 h-5 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#0EA5E9] transition-colors" strokeWidth={2} />
                           </div>
                         ))}
                       </div>
                       {/* Footer */}
-                      <div className="px-5 py-3 border-t border-[#F1F5F9]">
-                        <a href="#" className="text-[11px] font-bold text-[#2B3674] hover:underline">Show all ({actionItems.length})</a>
+                      <div className="px-6 py-4 border-t border-[#F1F5F9]">
+                        <a href="#" className="text-[13px] font-bold text-[#0EA5E9] hover:underline">Show all ({actionItems.length})</a>
                       </div>
                     </div>
 
                     {/* ── Col 2 — Happening Today ── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden">
                       {/* Column header */}
-                      <div className="px-5 pt-5 pb-3 border-b-2 border-[#2B3674]">
+                      <div className="px-6 pt-6 pb-4 border-b-2 border-[#0EA5E9]">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-[10px] bg-[#EEF3FF] flex items-center justify-center flex-shrink-0">
-                            <CalendarDays className="w-4 h-4 text-[#2B3674]" strokeWidth={2} />
+                          <div className="w-9 h-9 rounded-[10px] bg-[#F0F9FF] flex items-center justify-center flex-shrink-0">
+                            <CalendarDays className="w-5 h-5 text-[#0EA5E9]" strokeWidth={2} />
                           </div>
-                          <span className="text-[13px] font-bold text-[#0F172A]">Happening Today</span>
-                          <span className="ml-auto text-[11px] font-bold text-[#2B3674] bg-[#EEF3FF] px-2 py-0.5 rounded-full">{happeningToday.length} items</span>
+                          <span className="text-[15px] font-bold text-[#0F172A]">Happening Today</span>
+                          <span className="ml-auto text-[13px] font-bold text-[#0EA5E9] bg-[#F0F9FF] px-2.5 py-1 rounded-full">{happeningToday.length} items</span>
                         </div>
                       </div>
                       {/* Items */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9]">
                         {happeningToday.map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#F7F8FC] transition-colors group">
-                            <div className="w-8 h-8 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
-                              {item.type === "delivery" && <Folder className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "meeting"  && <Clock  className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "leave"    && <DoorOpen className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "invoice"  && <FileText className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
+                          <div key={i} className="flex items-center gap-4 px-6 py-4 hover:bg-[#F7F8FC] transition-colors group">
+                            <div className="w-10 h-10 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
+                              {item.type === "delivery" && <Folder className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "meeting"  && <Clock  className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "leave"    && <DoorOpen className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "invoice"  && <FileText className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
                             </div>
-                            <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                            <div className="flex flex-col gap-1 flex-1 min-w-0">
                               {item.type === "delivery" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.project}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.client} · Lead: {item.lead}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.project}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.client} · Lead: {item.lead}</span>
                               </>}
                               {item.type === "meeting" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.title}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.time} · {item.with}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.title}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.time} · {item.with}</span>
                               </>}
                               {item.type === "leave" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.name}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.kind}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.name}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.kind}</span>
                               </>}
                               {item.type === "invoice" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.client}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.amount} due today</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.client}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.amount} due today</span>
                               </>}
                             </div>
-                            <ChevronRight className="w-4 h-4 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#2B3674] transition-colors" strokeWidth={2} />
+                            <ChevronRight className="w-5 h-5 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#0EA5E9] transition-colors" strokeWidth={2} />
                           </div>
                         ))}
                       </div>
                       {/* Footer */}
-                      <div className="px-5 py-3 border-t border-[#F1F5F9]">
-                        <a href="#" className="text-[11px] font-bold text-[#2B3674] hover:underline">Show all ({happeningToday.length})</a>
+                      <div className="px-6 py-4 border-t border-[#F1F5F9]">
+                        <a href="#" className="text-[13px] font-bold text-[#0EA5E9] hover:underline">Show all ({happeningToday.length})</a>
                       </div>
                     </div>
 
                     {/* ── Col 3 — Coming Up This Week ── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden">
                       {/* Column header */}
-                      <div className="px-5 pt-5 pb-3 border-b-2 border-[#16A34A]">
+                      <div className="px-6 pt-6 pb-4 border-b-2 border-[#16A34A]">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-[10px] bg-[#F0FDF4] flex items-center justify-center flex-shrink-0">
-                            <CheckCircle2 className="w-4 h-4 text-[#16A34A]" strokeWidth={2} />
+                          <div className="w-9 h-9 rounded-[10px] bg-[#F0FDF4] flex items-center justify-center flex-shrink-0">
+                            <CheckCircle2 className="w-5 h-5 text-[#16A34A]" strokeWidth={2} />
                           </div>
-                          <span className="text-[13px] font-bold text-[#0F172A]">Coming Up This Week</span>
-                          <span className="ml-auto text-[11px] font-bold text-[#16A34A] bg-[#F0FDF4] px-2 py-0.5 rounded-full">{comingUp.length} items</span>
+                          <span className="text-[15px] font-bold text-[#0F172A]">Coming Up This Week</span>
+                          <span className="ml-auto text-[13px] font-bold text-[#16A34A] bg-[#F0FDF4] px-2.5 py-1 rounded-full">{comingUp.length} items</span>
                         </div>
                       </div>
                       {/* Items */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9]">
                         {comingUp.map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#F7F8FC] transition-colors group">
-                            <div className="w-8 h-8 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
-                              {item.type === "milestone" && <CheckCircle2 className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "invoice"   && <FileText className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
-                              {item.type === "meeting"   && <Clock className="w-3.5 h-3.5 text-[#0F172A]" strokeWidth={2} />}
+                          <div key={i} className="flex items-center gap-4 px-6 py-4 hover:bg-[#F7F8FC] transition-colors group">
+                            <div className="w-10 h-10 rounded-full bg-[#F7F8FC] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0">
+                              {item.type === "milestone" && <CheckCircle2 className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "invoice"   && <FileText className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
+                              {item.type === "meeting"   && <Clock className="w-4.5 h-4.5 text-[#0F172A]" strokeWidth={2} />}
                             </div>
-                            <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                            <div className="flex flex-col gap-1 flex-1 min-w-0">
                               {item.type === "milestone" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.name}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.project} · {item.date}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.name}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.project} · {item.date}</span>
                               </>}
                               {item.type === "invoice" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.client}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.amount} · Due {item.date}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.client}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.amount} · Due {item.date}</span>
                               </>}
                               {item.type === "meeting" && <>
-                                <span className="text-[12px] font-bold text-[#0F172A]">{item.client}</span>
-                                <span className="text-[10px] text-[#94A3B8]">{item.date} · {item.time}</span>
+                                <span className="text-[14px] font-bold text-[#0F172A]">{item.client}</span>
+                                <span className="text-[12px] text-[#64748B]">{item.date} · {item.time}</span>
                               </>}
                             </div>
-                            <ChevronRight className="w-4 h-4 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#2B3674] transition-colors" strokeWidth={2} />
+                            <ChevronRight className="w-5 h-5 text-[#CBD5E1] flex-shrink-0 group-hover:text-[#0EA5E9] transition-colors" strokeWidth={2} />
                           </div>
                         ))}
                       </div>
                       {/* Footer */}
-                      <div className="px-5 py-3 border-t border-[#F1F5F9]">
-                        <a href="#" className="text-[11px] font-bold text-[#2B3674] hover:underline">Show all ({comingUp.length})</a>
+                      <div className="px-6 py-4 border-t border-[#F1F5F9]">
+                        <a href="#" className="text-[13px] font-bold text-[#0EA5E9] hover:underline">Show all ({comingUp.length})</a>
                       </div>
                     </div>
 
