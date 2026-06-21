@@ -716,16 +716,16 @@ export default function App() {
                 {/* ══════════════════════════════════════════════════════════
                     SECTION 5 — PROJECTS OVERVIEW
                     ══════════════════════════════════════════════════════════ */}
-                <div className="relative z-20 mt-5 px-1">
+                <div className="relative z-20 mt-6 px-1">
                   <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden">
                     {/* Header */}
-                    <div className="px-6 pt-5 pb-4 border-b border-[#E2E8F0] flex items-center justify-between">
+                    <div className="px-7 pt-6 pb-5 border-b border-[#E2E8F0] flex items-center justify-between">
                       <div>
-                        <h2 className="text-[16px] font-bold text-[#0F172A]">Projects Overview</h2>
-                        <p className="text-[12px] text-[#94A3B8] font-medium mt-0.5">{projects.length} active projects</p>
+                        <h2 className="text-[18px] font-bold text-[#0F172A]">Projects Overview</h2>
+                        <p className="text-[14px] text-[#94A3B8] font-medium mt-1">{projects.length} active projects</p>
                       </div>
-                      <a href="#" className="text-[12px] font-semibold text-[#2B3674] border border-[#E2E8F0] flex items-center gap-1.5 px-4 py-2 rounded-full hover:bg-[#EEF3FF] transition-colors">
-                        View All Projects <ChevronRight className="w-3.5 h-3.5" />
+                      <a href="#" className="text-[14px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] flex items-center gap-1.5 px-5 py-2.5 rounded-full hover:bg-[#F0F9FF] transition-colors">
+                        View All Projects <ChevronRight className="w-4 h-4" />
                       </a>
                     </div>
                     {/* Table */}
@@ -734,7 +734,7 @@ export default function App() {
                         <thead>
                           <tr className="bg-[#F7F8FC]">
                             {["Project", "Client", "Lead", "Phase", "Progress", "Status", "Deadline", ""].map((h) => (
-                              <th key={h} className="text-[11px] font-bold text-[#94A3B8] uppercase tracking-wider py-3 px-5 first:pl-6 last:pr-6 whitespace-nowrap">{h}</th>
+                              <th key={h} className="text-[13px] font-bold text-[#94A3B8] uppercase tracking-wider py-4 px-6 first:pl-7 last:pr-7 whitespace-nowrap">{h}</th>
                             ))}
                           </tr>
                         </thead>
@@ -743,43 +743,43 @@ export default function App() {
                             const sc = statusColors[p.status] || statusColors["On Track"];
                             return (
                               <tr key={i} className="hover:bg-[#F7F8FC] transition-colors group">
-                                <td className="py-4 px-5 pl-6">
-                                  <span className="text-[13px] font-bold text-[#0F172A]">{p.name}</span>
+                                <td className="py-5 px-6 pl-7">
+                                  <span className="text-[15px] font-bold text-[#0F172A]">{p.name}</span>
                                 </td>
-                                <td className="py-4 px-5">
-                                  <span className="text-[12px] text-[#64748B] font-medium">{p.client}</span>
+                                <td className="py-5 px-6">
+                                  <span className="text-[14px] text-[#64748B] font-medium">{p.client}</span>
                                 </td>
-                                <td className="py-4 px-5">
-                                  <div className="flex items-center gap-2">
-                                    <img src={`https://i.pravatar.cc/150?u=${p.lead}`} alt={p.lead} className="w-6 h-6 rounded-full border border-[#E2E8F0]" />
-                                    <span className="text-[12px] text-[#64748B] font-medium whitespace-nowrap">{p.lead}</span>
+                                <td className="py-5 px-6">
+                                  <div className="flex items-center gap-2.5">
+                                    <img src={`https://i.pravatar.cc/150?u=${p.lead}`} alt={p.lead} className="w-7 h-7 rounded-full border border-[#E2E8F0]" />
+                                    <span className="text-[14px] text-[#64748B] font-medium whitespace-nowrap">{p.lead}</span>
                                   </div>
                                 </td>
-                                <td className="py-4 px-5">
-                                  <span className="text-[11px] font-semibold text-[#64748B] bg-[#F1F5F9] px-2.5 py-1 rounded-full whitespace-nowrap">{p.phase}</span>
+                                <td className="py-5 px-6">
+                                  <span className="text-[13px] font-semibold text-[#64748B] bg-[#F1F5F9] px-3 py-1.5 rounded-full whitespace-nowrap">{p.phase}</span>
                                 </td>
-                                <td className="py-4 px-5 min-w-[140px]">
+                                <td className="py-5 px-6 min-w-[150px]">
                                   <div className="flex items-center gap-3">
                                     <div className="flex-1">
-                                      <ProgressBar percent={p.progress} color={p.status === "Delayed" ? "bg-[#DC2626]" : p.status === "At Risk" ? "bg-[#F59E0B]" : "bg-[#2B3674]"} />
+                                      <ProgressBar percent={p.progress} color={p.status === "Delayed" ? "bg-[#DC2626]" : p.status === "At Risk" ? "bg-[#F59E0B]" : "bg-[#0EA5E9]"} />
                                     </div>
-                                    <span className="text-[12px] font-bold text-[#0F172A] whitespace-nowrap w-8 text-right">{p.progress}%</span>
+                                    <span className="text-[14px] font-bold text-[#0F172A] whitespace-nowrap w-9 text-right">{p.progress}%</span>
                                   </div>
                                 </td>
-                                <td className="py-4 px-5">
-                                  <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap ${sc.bg} ${sc.text}`}>
-                                    <span className={`w-1.5 h-1.5 rounded-full ${sc.dot}`} />
+                                <td className="py-5 px-6">
+                                  <span className={`inline-flex items-center gap-1.5 text-[13px] font-bold px-3.5 py-1.5 rounded-full whitespace-nowrap ${sc.bg} ${sc.text}`}>
+                                    <span className={`w-2 h-2 rounded-full ${sc.dot}`} />
                                     {p.status}
                                   </span>
                                 </td>
-                                <td className="py-4 px-5">
-                                  <span className={`text-[12px] font-bold whitespace-nowrap ${p.days <= 3 ? "text-[#DC2626]" : "text-[#64748B]"}`}>
+                                <td className="py-5 px-6">
+                                  <span className={`text-[14px] font-bold whitespace-nowrap ${p.days <= 3 ? "text-[#DC2626]" : "text-[#64748B]"}`}>
                                     {p.days <= 3 ? `⚠️ ` : ""}{p.days}d left
                                   </span>
                                 </td>
-                                <td className="py-4 px-5 pr-6">
-                                  <a href="#" className="text-[12px] font-bold text-[#2B3674] hover:underline flex items-center gap-1 whitespace-nowrap">
-                                    View <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                                <td className="py-5 px-6 pr-7">
+                                  <a href="#" className="text-[14px] font-bold text-[#0EA5E9] hover:underline flex items-center gap-1 whitespace-nowrap">
+                                    View <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
                                   </a>
                                 </td>
                               </tr>
@@ -794,31 +794,31 @@ export default function App() {
                 {/* ══════════════════════════════════════════════════════════
                     SECTIONS 6 + 7 + 8 — 3-column bottom row
                     ══════════════════════════════════════════════════════════ */}
-                <div className="relative z-20 mt-5 px-1 mb-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div className="relative z-20 mt-6 px-1 mb-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
                     {/* ───────────────────────
                         SECTION 6 — Team Activity Feed
                         ─────────────────────── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden flex flex-col">
                       {/* Header */}
-                      <div className="px-5 pt-5 pb-4 border-b border-[#E2E8F0]">
-                        <div className="flex items-center justify-between mb-3">
+                      <div className="px-6 pt-6 pb-5 border-b border-[#E2E8F0]">
+                        <div className="flex items-center justify-between mb-4">
                           <div>
-                            <h2 className="text-[15px] font-bold text-[#0F172A]">Team Activity Feed</h2>
-                            <p className="text-[11px] text-[#94A3B8] font-medium mt-0.5">Live updates from your team</p>
+                            <h2 className="text-[18px] font-bold text-[#0F172A]">Team Activity Feed</h2>
+                            <p className="text-[13px] text-[#94A3B8] font-medium mt-1">Live updates from your team</p>
                           </div>
-                          <a href="#" className="text-[11px] font-semibold text-[#2B3674] border border-[#E2E8F0] flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-[#EEF3FF] transition-colors whitespace-nowrap">
-                            View Full Log <ChevronRight className="w-3 h-3" />
+                          <a href="#" className="text-[13px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] flex items-center gap-1.5 px-3.5 py-1.5 rounded-full hover:bg-[#F0F9FF] transition-colors whitespace-nowrap">
+                            View Full Log <ChevronRight className="w-3.5 h-3.5" />
                           </a>
                         </div>
                         {/* Filter pills */}
-                        <div className="flex gap-1.5 flex-wrap">
+                        <div className="flex gap-2 flex-wrap">
                           {["All", "Updates", "Tasks", "Files", "Leave"].map((f, i) => (
-                            <button key={f} className={`text-[11px] font-semibold px-3 py-1 rounded-full border transition-colors ${
+                            <button key={f} className={`text-[13px] font-semibold px-4 py-1.5 rounded-full border transition-colors ${
                               i === 0
-                                ? "bg-[#2B3674] text-white border-[#2B3674]"
-                                : "bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#2B3674] hover:text-[#2B3674]"
+                                ? "bg-[#0EA5E9] text-white border-[#0EA5E9]"
+                                : "bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#0EA5E9] hover:text-[#0EA5E9]"
                             }`}>
                               {f}
                             </button>
@@ -828,21 +828,21 @@ export default function App() {
                       {/* Feed items */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9] flex-1">
                         {teamFeed.map((item, i) => (
-                          <div key={i} className="flex items-start gap-3.5 px-5 py-4 hover:bg-[#F7F8FC] transition-colors">
+                          <div key={i} className="flex items-start gap-4 px-6 py-5 hover:bg-[#F7F8FC] transition-colors">
                             {/* Avatar */}
                             <div className="relative flex-shrink-0">
-                              <img src={item.avatar} alt={item.name} className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" />
-                              <div className={`absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full ${item.iconBg} flex items-center justify-center border-2 border-white`}>
-                                <item.icon className={`w-2.5 h-2.5 ${item.iconColor}`} strokeWidth={2.5} />
+                              <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                              <div className={`absolute -bottom-0.5 -right-0.5 w-6 h-6 rounded-full ${item.iconBg === 'bg-[#2B3674]' ? 'bg-[#0EA5E9]' : item.iconBg} flex items-center justify-center border-2 border-white`}>
+                                <item.icon className={`w-3 h-3 ${item.iconColor}`} strokeWidth={2.5} />
                               </div>
                             </div>
                             {/* Content */}
-                            <div className="flex flex-col gap-1 flex-1 min-w-0">
+                            <div className="flex flex-col gap-1.5 flex-1 min-w-0">
                               <div className="flex items-center justify-between gap-2">
-                                <span className="text-[13px] font-bold text-[#0F172A]">{item.name}</span>
-                                <span className="text-[11px] text-[#94A3B8] whitespace-nowrap flex-shrink-0">{item.time}</span>
+                                <span className="text-[15px] font-bold text-[#0F172A]">{item.name}</span>
+                                <span className="text-[13px] text-[#94A3B8] whitespace-nowrap flex-shrink-0">{item.time}</span>
                               </div>
-                              <p className="text-[12px] text-[#64748B] font-medium leading-relaxed">
+                              <p className="text-[14px] text-[#64748B] font-medium leading-relaxed">
                                 {item.action} <span className="font-bold text-[#0F172A]">{item.detail}</span>{item.event ? ` ${item.event}` : ""}
                               </p>
                             </div>
@@ -856,38 +856,38 @@ export default function App() {
                         ─────────────────────── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden flex flex-col">
                       {/* Header */}
-                      <div className="px-5 pt-5 pb-4 border-b border-[#E2E8F0] flex items-center justify-between">
+                      <div className="px-6 pt-6 pb-5 border-b border-[#E2E8F0] flex items-center justify-between">
                         <div>
-                          <h2 className="text-[15px] font-bold text-[#0F172A]">Recent Invoices</h2>
-                          <p className="text-[11px] text-[#94A3B8] font-medium mt-0.5">Last 5 invoices</p>
+                          <h2 className="text-[18px] font-bold text-[#0F172A]">Recent Invoices</h2>
+                          <p className="text-[13px] text-[#94A3B8] font-medium mt-1">Last 5 invoices</p>
                         </div>
-                        <a href="#" className="text-[11px] font-semibold text-[#2B3674] border border-[#E2E8F0] flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-[#EEF3FF] transition-colors whitespace-nowrap">
-                          View All <ChevronRight className="w-3 h-3" />
+                        <a href="#" className="text-[13px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] flex items-center gap-1.5 px-3.5 py-1.5 rounded-full hover:bg-[#F0F9FF] transition-colors whitespace-nowrap">
+                          View All <ChevronRight className="w-3.5 h-3.5" />
                         </a>
                       </div>
                       {/* Invoice rows */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9] flex-1">
                         {invoices.map((inv, i) => {
                           const sc = invStatusColors[inv.status] || invStatusColors["Draft"];
-                          const accentColor = inv.status === "Paid" ? "bg-[#16A34A]" : inv.status === "Overdue" ? "bg-[#DC2626]" : "bg-[#2B3674]";
+                          const accentColor = inv.status === "Paid" ? "bg-[#16A34A]" : inv.status === "Overdue" ? "bg-[#DC2626]" : "bg-[#0EA5E9]";
                           return (
-                            <div key={i} className="flex items-center gap-4 px-5 py-4 hover:bg-[#F7F8FC] transition-colors group">
+                            <div key={i} className="flex items-center gap-4 px-6 py-5 hover:bg-[#F7F8FC] transition-colors group">
                               {/* Left color bar */}
-                              <div className={`w-1 h-10 rounded-full flex-shrink-0 ${accentColor}`} />
+                              <div className={`w-1.5 h-12 rounded-full flex-shrink-0 ${accentColor}`} />
                               {/* Invoice info */}
-                              <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[12px] font-bold text-[#0F172A] font-mono tracking-tight">{inv.num}</span>
-                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${sc.bg} ${sc.text}`}>{inv.status}</span>
+                              <div className="flex flex-col gap-1 flex-1 min-w-0">
+                                <div className="flex items-center gap-2.5">
+                                  <span className="text-[14px] font-bold text-[#0F172A] font-mono tracking-tight">{inv.num}</span>
+                                  <span className={`text-[12px] font-bold px-2.5 py-0.5 rounded-full ${sc.bg} ${sc.text}`}>{inv.status}</span>
                                 </div>
-                                <span className="text-[12px] text-[#64748B] font-medium">{inv.client}</span>
-                                <span className="text-[10px] text-[#94A3B8]">Sent {inv.sent} · Due {inv.due}</span>
+                                <span className="text-[14px] text-[#64748B] font-medium">{inv.client}</span>
+                                <span className="text-[12px] text-[#94A3B8]">Sent {inv.sent} · Due {inv.due}</span>
                               </div>
                               {/* Amount + link */}
-                              <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                                <span className="text-[15px] font-bold text-[#0F172A]">{inv.amount}</span>
-                                <a href="#" className="flex items-center gap-0.5 text-[11px] font-bold text-[#2B3674] hover:underline">
-                                  View <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                              <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+                                <span className="text-[18px] font-bold text-[#0F172A]">{inv.amount}</span>
+                                <a href="#" className="flex items-center gap-0.5 text-[13px] font-bold text-[#0EA5E9] hover:underline">
+                                  View <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
                                 </a>
                               </div>
                             </div>
@@ -901,40 +901,40 @@ export default function App() {
                         ─────────────────────── */}
                     <div className="rounded-[20px] border border-[#E2E8F0] bg-white shadow-[0_2px_8px_rgba(15,23,42,0.06)] overflow-hidden flex flex-col">
                       {/* Header */}
-                      <div className="px-5 pt-5 pb-4 border-b border-[#E2E8F0] flex items-center justify-between">
+                      <div className="px-6 pt-6 pb-5 border-b border-[#E2E8F0] flex items-center justify-between">
                         <div>
-                          <h2 className="text-[15px] font-bold text-[#0F172A]">Quick Chat Preview</h2>
-                          <p className="text-[11px] text-[#94A3B8] font-medium mt-0.5">{chatMessages.length} unread messages</p>
+                          <h2 className="text-[18px] font-bold text-[#0F172A]">Quick Chat Preview</h2>
+                          <p className="text-[13px] text-[#94A3B8] font-medium mt-1">{chatMessages.length} unread messages</p>
                         </div>
-                        <a href="#" className="text-[11px] font-semibold text-[#2B3674] border border-[#E2E8F0] flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-[#EEF3FF] transition-colors whitespace-nowrap">
-                          Open Chat <ChevronRight className="w-3 h-3" />
+                        <a href="#" className="text-[13px] font-semibold text-[#0EA5E9] border border-[#E2E8F0] flex items-center gap-1.5 px-3.5 py-1.5 rounded-full hover:bg-[#F0F9FF] transition-colors whitespace-nowrap">
+                          Open Chat <ChevronRight className="w-3.5 h-3.5" />
                         </a>
                       </div>
                       {/* Chat items */}
                       <div className="flex flex-col divide-y divide-[#F1F5F9] flex-1">
                         {chatMessages.map((msg, i) => (
-                          <div key={i} className="flex items-start gap-3.5 px-5 py-4 hover:bg-[#F7F8FC] transition-colors group">
+                          <div key={i} className="flex items-start gap-4 px-6 py-5 hover:bg-[#F7F8FC] transition-colors group">
                             {/* Avatar with online dot */}
                             <div className="relative flex-shrink-0">
-                              <img src={msg.avatar} alt={msg.name} className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-sm" />
-                              <span className="absolute bottom-0 right-0 w-3 h-3 bg-[#16A34A] rounded-full border-2 border-white" />
+                              <img src={msg.avatar} alt={msg.name} className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                              <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#16A34A] rounded-full border-2 border-white" />
                             </div>
                             {/* Message content */}
-                            <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+                            <div className="flex flex-col gap-2 flex-1 min-w-0">
                               <div className="flex items-center justify-between gap-2">
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[13px] font-bold text-[#0F172A]">{msg.name}</span>
-                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                <div className="flex items-center gap-2.5">
+                                  <span className="text-[15px] font-bold text-[#0F172A]">{msg.name}</span>
+                                  <span className={`text-[12px] font-bold px-2.5 py-0.5 rounded-full ${
                                     msg.type === "Client"
-                                      ? "bg-[#EEF3FF] text-[#2B3674]"
+                                      ? "bg-[#F0F9FF] text-[#0EA5E9]"
                                       : "bg-[#F0FDF4] text-[#16A34A]"
                                   }`}>{msg.type}</span>
                                 </div>
-                                <span className="text-[11px] text-[#94A3B8] whitespace-nowrap flex-shrink-0">{msg.time}</span>
+                                <span className="text-[13px] text-[#94A3B8] whitespace-nowrap flex-shrink-0">{msg.time}</span>
                               </div>
-                              <p className="text-[12px] text-[#64748B] font-medium leading-relaxed line-clamp-2">{msg.msg}</p>
-                              <button className="self-start flex items-center gap-1.5 text-[11px] font-bold text-[#2B3674] bg-[#EEF3FF] px-3 py-1.5 rounded-full hover:bg-[#DBEAFE] transition-colors mt-0.5">
-                                <Send className="w-3 h-3" strokeWidth={2} />
+                              <p className="text-[14px] text-[#64748B] font-medium leading-relaxed line-clamp-2">{msg.msg}</p>
+                              <button className="self-start flex items-center gap-1.5 text-[13px] font-bold text-[#0EA5E9] bg-[#F0F9FF] px-4 py-2 rounded-full hover:bg-[#E0F2FE] transition-colors mt-1">
+                                <Send className="w-3.5 h-3.5" strokeWidth={2} />
                                 Reply
                               </button>
                             </div>
