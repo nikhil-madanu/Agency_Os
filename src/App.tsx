@@ -15,7 +15,7 @@ export default function App() {
         isCollapsed={isSidebarCollapsed} 
         onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)} 
       />
-      <main className={`flex-1 ml-0 transition-all duration-300 ease-in-out px-3 lg:pr-3 lg:pl-0 pt-3 pb-4 min-h-screen overflow-x-hidden flex flex-col ${isSidebarCollapsed ? "lg:ml-[88px]" : "lg:ml-[calc(clamp(250px,20vw,340px)+8px)]"}`}>
+      <main className={`flex-1 ml-0 transition-all duration-300 ease-in-out px-3 lg:pr-3 lg:pl-0 pt-3 pb-4 min-h-screen overflow-x-hidden flex flex-col ${isSidebarCollapsed ? "lg:ml-[88px]" : "lg:ml-[268px]"}`}>
         {currentView === "Dashboard" && <HomeDashboard />}
         {currentView === "Projects" && <ProjectsDashboard />}
       </main>

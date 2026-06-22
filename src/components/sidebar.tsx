@@ -51,7 +51,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
     <Tooltip.Provider delayDuration={100}>
       <aside className={cn(
         "hidden lg:flex fixed left-2 top-3 bottom-3 z-40 bg-white flex-col py-[clamp(12px,2vh,24px)] overflow-visible rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/80 transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[80px] px-2 xl:px-3" : "w-[clamp(250px,20vw,340px)] px-3 xl:px-5"
+        isCollapsed ? "w-[80px] px-2 xl:px-3" : "w-[260px] px-3 xl:px-5"
       )}>
         <div className="flex flex-col flex-1 min-h-0 relative">
           
