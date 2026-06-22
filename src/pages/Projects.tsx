@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/header";
 import { 
-  Plus, Search, Filter, MoreHorizontal, ChevronDown, 
+  Plus, MoreHorizontal, ChevronDown, 
   List, Calendar, LayoutGrid, CheckSquare, Folder, MessageSquare,
   Edit2, CalendarDays, Copy, ArrowRight,
-  CheckCircle2, AlertTriangle, AlertCircle, PauseCircle, Flag
+  CheckCircle2, AlertTriangle, AlertCircle, PauseCircle
 } from "lucide-react";
 
 const projects = [
@@ -52,6 +52,21 @@ const statusStyles: Record<string, string> = {
   "Delayed":   "bg-[#FEF2F2] text-[#DC2626]",
 };
 
+interface FloatingMetricProps {
+  top: string;
+  left: string;
+  icon: React.ElementType;
+  iconColor: string;
+  iconBg: string;
+  number: string | number;
+  label: string;
+  lineHeight?: number;
+  dotColor?: string;
+  lineColor?: string;
+  activeLine?: boolean;
+  rotation?: number;
+}
+
 function FloatingMetric({ 
   top, left,
   icon: Icon, 
@@ -62,7 +77,7 @@ function FloatingMetric({
   lineColor = "border-blue-200",
   activeLine = false,
   rotation = 0
-}: any) {
+}: FloatingMetricProps) {
   return (
     <div 
       className="absolute flex flex-col items-center z-20 pointer-events-auto" 

@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/sidebar";
+
 import { Header } from "@/components/header";
 import {
   Folder, Users, FileText, Plus, CalendarDays,
