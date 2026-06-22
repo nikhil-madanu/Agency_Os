@@ -50,8 +50,8 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
   return (
     <Tooltip.Provider delayDuration={100}>
       <aside className={cn(
-        "hidden lg:flex fixed left-2 top-3 bottom-3 z-40 bg-white flex-col py-3 xl:py-6 overflow-visible rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/80 transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[80px] xl:w-[90px] px-2 xl:px-4" : "w-[clamp(230px,18vw,260px)] xl:w-[280px] px-3 xl:px-5"
+        "hidden lg:flex fixed left-2 top-3 bottom-3 z-40 bg-white flex-col py-[clamp(12px,2vh,24px)] overflow-visible rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/80 transition-all duration-300 ease-in-out",
+        isCollapsed ? "w-[80px] px-2 xl:px-3" : "w-[clamp(250px,20vw,340px)] px-3 xl:px-5"
       )}>
         <div className="flex flex-col flex-1 min-h-0 relative">
           
@@ -118,7 +118,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
           </SidebarTooltip>
 
           {/* Main Navigation */}
-          <nav className="flex flex-col gap-0.5 xl:gap-1 flex-1 mt-0 pb-2 scrollbar-none">
+          <nav className="flex flex-col gap-0.5 xl:gap-1 flex-1 mt-0 pb-2 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-300">
             {mainNavItems.map((item) => (
               <SidebarTooltip key={item.label} label={item.label} isCollapsed={isCollapsed}>
                 <a
