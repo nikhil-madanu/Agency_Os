@@ -118,7 +118,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
           </SidebarTooltip>
 
           {/* Main Navigation */}
-          <nav className="flex flex-col gap-0.5 xl:gap-1 flex-1 mt-0 pb-2 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-300">
+          <nav className={cn("flex flex-col flex-1 mt-2 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-300", isCollapsed ? "gap-[clamp(8px,2vh,24px)] 2xl:gap-[clamp(12px,3.5vh,64px)]" : "gap-[clamp(2px,1vh,12px)]")}>
             {mainNavItems.map((item) => (
               <SidebarTooltip key={item.label} label={item.label} isCollapsed={isCollapsed}>
                 <a
@@ -151,7 +151,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </div>
 
         {/* Bottom Navigation */}
-        <div className="border-t border-slate-100/80 pt-2 xl:pt-4 mt-auto flex flex-col gap-0.5 xl:gap-1 relative z-50 bg-white">
+        <div className={cn("border-t border-slate-100/80 pt-[clamp(8px,2vh,12px)] mt-auto flex flex-col relative z-50 bg-white", isCollapsed ? "gap-[clamp(8px,2vh,24px)] 2xl:gap-[clamp(8px,3vh,32px)]" : "gap-[clamp(2px,1vh,8px)]")}>
           <SidebarTooltip label="Notifications" isCollapsed={isCollapsed}>
             <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 xl:p-3 rounded-xl mx-1 relative" : "justify-between px-3 py-2 xl:py-3 mx-1 rounded-xl text-[14px] xl:text-[14.5px]")}>
               <div className={cn("flex items-center", isCollapsed ? "justify-center" : "gap-3")}>
