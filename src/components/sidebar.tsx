@@ -50,7 +50,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         )}
 
         {/* Logo Section */}
-        <div className={cn("flex items-center mb-1 xl:mb-5 transition-all", isCollapsed ? "justify-center mt-2 xl:mt-6 px-0" : "gap-3 px-1 xl:px-2")}>
+        <div className={cn("flex items-center mb-3 transition-all", isCollapsed ? "justify-center mt-3 px-0" : "gap-3 px-1 xl:px-2")}>
           <div className={cn("flex flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/50 shadow-sm border border-blue-100/50", isCollapsed ? "h-[36px] w-[36px]" : "h-[36px] w-[36px] xl:h-[46px] xl:w-[46px]")}>
             <img 
               src="/agency-os-logo.png" 
@@ -67,7 +67,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </div>
 
         {/* Growth Plan Dropdown */}
-        <button className={cn("group relative flex items-center justify-between w-full bg-gradient-to-b from-white to-slate-50/80 border border-slate-200/80 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-300 ease-out", isCollapsed ? "p-1.5 xl:p-3 mb-1 xl:mb-4 justify-center" : "px-3 xl:px-4 py-1.5 xl:py-3 mb-1 xl:mb-5")}>
+        <button className={cn("group relative flex items-center justify-between w-full bg-gradient-to-b from-white to-slate-50/80 border border-slate-200/80 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-300 ease-out", isCollapsed ? "p-1.5 mb-3 justify-center" : "px-3 xl:px-4 py-2 mb-3")}>
           <div className={cn("flex items-center gap-2 font-bold text-blue-600", isCollapsed ? "text-[0px]" : "text-[13px] xl:text-[14px]")}>
             <Crown className="h-4 w-4 xl:h-4.5 xl:w-4.5 text-blue-500 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" strokeWidth={2.5} />
             {!isCollapsed && <span className="tracking-tight">Growth Plan</span>}
@@ -82,7 +82,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </button>
 
         {/* User Profile Snippet */}
-        <div className={cn("group relative flex items-center hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100", isCollapsed ? "justify-center p-1.5 mb-1 xl:mb-4 rounded-xl" : "gap-2 px-2 mb-1 xl:mb-5 p-1 xl:p-2 rounded-2xl")}>
+        <div className={cn("group relative flex items-center hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100", isCollapsed ? "justify-center p-1.5 mb-2 rounded-xl" : "gap-2 px-2 mb-2 p-1.5 rounded-2xl")}>
           <img 
             src="https://i.pravatar.cc/150?img=11" 
             alt="Arjun Mehta" 
@@ -109,7 +109,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </div>
 
         {/* Main Navigation */}
-        <nav className="flex flex-col gap-0 xl:gap-2 flex-1 mt-0">
+        <nav className={cn("flex flex-col flex-1 mt-0 pb-2", isCollapsed ? "overflow-visible gap-2" : "overflow-y-auto gap-0.5 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full")}>
           {mainNavItems.map((item) => (
             <a
               key={item.label}
@@ -120,7 +120,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
               }}
               className={cn(
                 "group relative flex items-center transition-all duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-                isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl",
+                isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 xl:px-4 py-2 rounded-2xl",
                 activeView === item.label 
                   ? "bg-gradient-to-r from-blue-50/80 to-indigo-50/30 text-blue-700 font-bold border border-blue-100/60 shadow-[0_2px_12px_-4px_rgba(59,130,246,0.15)]" 
                   : "text-slate-500 font-medium hover:bg-slate-50 hover:text-slate-900 border border-transparent"
@@ -147,8 +147,8 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
       </div>
 
       {/* Bottom Navigation */}
-      <div className="border-t border-slate-100/80 pt-1 xl:pt-4 mt-auto flex flex-col gap-0 xl:gap-2 relative z-50">
-        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl relative" : "justify-between px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
+      <div className="border-t border-slate-100/80 pt-3 mt-auto flex flex-col gap-1 relative z-50">
+        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-2 rounded-xl relative" : "justify-between px-3 xl:px-4 py-2 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
           <div className={cn("flex items-center", isCollapsed ? "justify-center" : "gap-3")}>
             <Bell className={cn("text-slate-400 group-hover:text-slate-700 group-hover:scale-105 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
             {!isCollapsed && <span className="tracking-tight">Notifications</span>}
@@ -165,7 +165,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
             <span className="bg-blue-500 text-white text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">12</span>
           )}
         </a>
-        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
+        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 xl:px-4 py-2 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
           <HelpCircle className={cn("text-slate-400 group-hover:text-slate-700 group-hover:scale-105 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
           {!isCollapsed && <span className="tracking-tight">Help & Support</span>}
           {isCollapsed && (
@@ -175,7 +175,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
             </div>
           )}
         </a>
-        <button className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-red-50 hover:text-red-700 border border-transparent transition-all duration-300 text-left w-full", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
+        <button className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-red-50 hover:text-red-700 border border-transparent transition-all duration-300 text-left w-full", isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 xl:px-4 py-2 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
           <LogOut className={cn("text-slate-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
           {!isCollapsed && <span className="tracking-tight">Logout</span>}
           {isCollapsed && (
