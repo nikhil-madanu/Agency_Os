@@ -50,8 +50,8 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
   return (
     <Tooltip.Provider delayDuration={100}>
       <aside className={cn(
-        "hidden lg:flex fixed left-2 top-3 bottom-3 z-40 bg-white flex-col py-3 xl:py-5 overflow-visible rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/80 transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[80px] px-2 xl:px-3" : "w-[clamp(230px,18vw,320px)] px-3 xl:px-5"
+        "hidden lg:flex fixed left-2 top-3 bottom-3 z-40 bg-white flex-col py-3 xl:py-6 overflow-visible rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/80 transition-all duration-300 ease-in-out",
+        isCollapsed ? "w-[80px] xl:w-[90px] px-2 xl:px-4" : "w-[clamp(230px,18vw,260px)] xl:w-[280px] px-3 xl:px-5"
       )}>
         <div className="flex flex-col flex-1 min-h-0 relative">
           
@@ -70,7 +70,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
           )}
 
           {/* Logo Section */}
-          <div className={cn("flex items-center mb-1 xl:mb-5 transition-all", isCollapsed ? "justify-center mt-2 xl:mt-6 px-0" : "gap-3 px-1 xl:px-2")}>
+          <div className={cn("flex items-center mb-1 xl:mb-6 transition-all", isCollapsed ? "justify-center mt-2 xl:mt-6 px-0" : "gap-3 px-1 xl:px-2")}>
             <div className={cn("flex flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/50 shadow-sm border border-blue-100/50", isCollapsed ? "h-[36px] w-[36px]" : "h-[36px] w-[36px] xl:h-[46px] xl:w-[46px]")}>
               <img 
                 src="/agency-os-logo.png" 
@@ -88,7 +88,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
 
           {/* Growth Plan Dropdown */}
           <SidebarTooltip label="Growth Plan" isCollapsed={isCollapsed}>
-            <button className={cn("group relative flex items-center justify-between w-full bg-gradient-to-b from-white to-slate-50/80 border border-slate-200/80 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-300 ease-out", isCollapsed ? "p-1.5 xl:p-3 mb-1 xl:mb-4 justify-center" : "px-3 xl:px-4 py-1.5 xl:py-3 mb-1 xl:mb-5")}>
+            <button className={cn("group relative flex items-center justify-between w-full bg-gradient-to-b from-white to-slate-50/80 border border-slate-200/80 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-300 ease-out", isCollapsed ? "p-1.5 xl:p-3 mb-1 xl:mb-4 justify-center" : "px-3 xl:px-4 py-1.5 xl:py-3.5 mb-1 xl:mb-5")}>
               <div className={cn("flex items-center gap-2 font-bold text-blue-600", isCollapsed ? "text-[0px]" : "text-[13px] xl:text-[14px]")}>
                 <Crown className="h-4 w-4 xl:h-4.5 xl:w-4.5 text-blue-500 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" strokeWidth={2.5} />
                 {!isCollapsed && <span className="tracking-tight">Growth Plan</span>}
@@ -99,11 +99,11 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
 
           {/* User Profile Snippet */}
           <SidebarTooltip label={<div className="flex flex-col"><span>Arjun Mehta</span><span className="text-[11px] text-slate-300 font-normal">Administrator</span></div>} isCollapsed={isCollapsed}>
-            <div className={cn("group relative flex items-center hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100", isCollapsed ? "justify-center p-1.5 mb-1 xl:mb-4 rounded-xl" : "gap-2 px-2 mb-1 xl:mb-5 p-1 xl:p-2 rounded-2xl")}>
+            <div className={cn("group relative flex items-center hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100", isCollapsed ? "justify-center p-1.5 mb-1 xl:mb-5 rounded-xl" : "gap-2 px-2 mb-1 xl:mb-6 p-1 xl:p-2.5 rounded-2xl")}>
               <img 
                 src="https://i.pravatar.cc/150?img=11" 
                 alt="Arjun Mehta" 
-                className={cn("rounded-full object-cover ring-2 ring-white shadow-sm flex-shrink-0", isCollapsed ? "w-[32px] h-[32px]" : "w-[34px] h-[34px] xl:w-[42px] xl:h-[42px]")} 
+                className={cn("rounded-full object-cover ring-2 ring-white shadow-sm flex-shrink-0", isCollapsed ? "w-[32px] h-[32px]" : "w-[34px] h-[34px] xl:w-[40px] xl:h-[40px]")} 
               />
               {!isCollapsed && (
                 <div className="flex flex-col overflow-hidden">
@@ -118,7 +118,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
           </SidebarTooltip>
 
           {/* Main Navigation */}
-          <nav className="flex flex-col gap-1 flex-1 mt-2 overflow-y-auto pb-2 scrollbar-none">
+          <nav className="flex flex-col gap-0.5 xl:gap-1 flex-1 mt-0 pb-2 scrollbar-none">
             {mainNavItems.map((item) => (
               <SidebarTooltip key={item.label} label={item.label} isCollapsed={isCollapsed}>
                 <a
@@ -129,7 +129,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
                   }}
                   className={cn(
                     "group relative flex items-center transition-all duration-200 outline-none",
-                    isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 py-2.5 rounded-xl mx-1",
+                    isCollapsed ? "justify-center p-2 xl:p-3 rounded-xl" : "gap-3 px-3 py-2 xl:py-3.5 rounded-xl mx-1",
                     activeView === item.label 
                       ? "bg-[#EFF6FF] text-[#2563EB] font-bold" 
                       : "text-[#64748B] font-medium hover:bg-slate-50 hover:text-[#0F172A]"
@@ -138,12 +138,12 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
                   <item.icon 
                     className={cn(
                       "transition-transform duration-200 flex-shrink-0", 
-                      isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]",
+                      isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[19px] xl:w-[19px]",
                       activeView === item.label ? "text-[#2563EB]" : "text-slate-400 group-hover:text-[#0F172A]"
                     )} 
                     strokeWidth={activeView === item.label ? 2.5 : 2} 
                   />
-                  {!isCollapsed && <span className="tracking-tight text-[14px]">{item.label}</span>}
+                  {!isCollapsed && <span className="tracking-tight text-[14px] xl:text-[14.5px]">{item.label}</span>}
                 </a>
               </SidebarTooltip>
             ))}
@@ -151,9 +151,9 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </div>
 
         {/* Bottom Navigation */}
-        <div className="border-t border-slate-100/80 pt-3 mt-auto flex flex-col gap-1 relative z-50 bg-white">
+        <div className="border-t border-slate-100/80 pt-2 xl:pt-4 mt-auto flex flex-col gap-0.5 xl:gap-1 relative z-50 bg-white">
           <SidebarTooltip label="Notifications" isCollapsed={isCollapsed}>
-            <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 rounded-xl mx-1 relative" : "justify-between px-3 py-2.5 mx-1 rounded-xl text-[14px]")}>
+            <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 xl:p-3 rounded-xl mx-1 relative" : "justify-between px-3 py-2 xl:py-3 mx-1 rounded-xl text-[14px] xl:text-[14.5px]")}>
               <div className={cn("flex items-center", isCollapsed ? "justify-center" : "gap-3")}>
                 <Bell className={cn("text-slate-400 group-hover:text-[#0F172A] transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
                 {!isCollapsed && <span className="tracking-tight">Notifications</span>}
@@ -166,13 +166,13 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
             </a>
           </SidebarTooltip>
           <SidebarTooltip label="Help & Support" isCollapsed={isCollapsed}>
-            <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 rounded-xl mx-1" : "gap-3 px-3 py-2.5 mx-1 rounded-xl text-[14px]")}>
+            <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 xl:p-3 rounded-xl mx-1" : "gap-3 px-3 py-2 xl:py-3 mx-1 rounded-xl text-[14px] xl:text-[14.5px]")}>
               <HelpCircle className={cn("text-slate-400 group-hover:text-[#0F172A] transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
               {!isCollapsed && <span className="tracking-tight">Help & Support</span>}
             </a>
           </SidebarTooltip>
           <SidebarTooltip label="Logout" isCollapsed={isCollapsed}>
-            <button className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-red-50 hover:text-red-700 transition-all duration-200 text-left w-[calc(100%-8px)] mx-1", isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 py-2.5 rounded-xl text-[14px]")}>
+            <button className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-red-50 hover:text-red-700 transition-all duration-200 text-left w-[calc(100%-8px)] mx-1", isCollapsed ? "justify-center p-2 xl:p-3 rounded-xl" : "gap-3 px-3 py-2 xl:py-3 rounded-xl text-[14px] xl:text-[14.5px]")}>
               <LogOut className={cn("text-slate-400 group-hover:text-red-500 transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
               {!isCollapsed && <span className="tracking-tight">Logout</span>}
             </button>
