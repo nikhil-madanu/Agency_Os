@@ -109,7 +109,7 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
         </div>
 
         {/* Main Navigation */}
-        <nav className="flex flex-col gap-0 xl:gap-2 flex-1 mt-0">
+        <nav className="flex flex-col gap-1 flex-1 mt-2 overflow-visible pb-2">
           {mainNavItems.map((item) => (
             <a
               key={item.label}
@@ -119,22 +119,22 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
                 onNavigate(item.label);
               }}
               className={cn(
-                "group relative flex items-center transition-all duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-                isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl",
+                "group relative flex items-center transition-all duration-200 outline-none",
+                isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 py-2.5 rounded-xl mx-1",
                 activeView === item.label 
-                  ? "bg-gradient-to-r from-blue-50/80 to-indigo-50/30 text-blue-700 font-bold border border-blue-100/60 shadow-[0_2px_12px_-4px_rgba(59,130,246,0.15)]" 
-                  : "text-slate-500 font-medium hover:bg-slate-50 hover:text-slate-900 border border-transparent"
+                  ? "bg-[#EFF6FF] text-[#2563EB] font-bold" 
+                  : "text-[#64748B] font-medium hover:bg-slate-50 hover:text-[#0F172A]"
               )}
             >
               <item.icon 
                 className={cn(
-                  "transition-transform duration-300 flex-shrink-0", 
-                  isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]",
-                  activeView === item.label ? "text-blue-600 scale-105" : "text-slate-400 group-hover:text-slate-700 group-hover:scale-105"
+                  "transition-transform duration-200 flex-shrink-0", 
+                  isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]",
+                  activeView === item.label ? "text-[#2563EB]" : "text-slate-400 group-hover:text-[#0F172A]"
                 )} 
                 strokeWidth={activeView === item.label ? 2.5 : 2} 
               />
-              {!isCollapsed && <span className="tracking-tight text-[13.5px] xl:text-[14.5px]">{item.label}</span>}
+              {!isCollapsed && <span className="tracking-tight text-[14px]">{item.label}</span>}
               {isCollapsed && (
                 <div className="absolute left-full ml-4 px-3 py-1.5 bg-slate-800 text-white text-[13px] font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 whitespace-nowrap shadow-lg">
                   {item.label}
@@ -147,26 +147,26 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
       </div>
 
       {/* Bottom Navigation */}
-      <div className="border-t border-slate-100/80 pt-1 xl:pt-4 mt-auto flex flex-col gap-0 xl:gap-2 relative z-50">
-        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl relative" : "justify-between px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
+      <div className="border-t border-slate-100/80 pt-3 mt-auto flex flex-col gap-1 relative z-50 bg-white">
+        <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 rounded-xl mx-1 relative" : "justify-between px-3 py-2.5 mx-1 rounded-xl text-[14px]")}>
           <div className={cn("flex items-center", isCollapsed ? "justify-center" : "gap-3")}>
-            <Bell className={cn("text-slate-400 group-hover:text-slate-700 group-hover:scale-105 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
+            <Bell className={cn("text-slate-400 group-hover:text-[#0F172A] transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
             {!isCollapsed && <span className="tracking-tight">Notifications</span>}
           </div>
           {isCollapsed ? (
             <>
-              <span className="absolute top-2 right-2 w-2 h-2 bg-blue-500 rounded-full ring-2 ring-white"></span>
+              <span className="absolute top-2 right-2 w-2 h-2 bg-[#2563EB] rounded-full ring-2 ring-white"></span>
               <div className="absolute left-full ml-4 px-3 py-1.5 bg-slate-800 text-white text-[13px] font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 whitespace-nowrap shadow-lg">
                 Notifications
                 <div className="absolute top-1/2 -translate-y-1/2 -left-1 w-2 h-2 bg-slate-800 rotate-45"></div>
               </div>
             </>
           ) : (
-            <span className="bg-blue-500 text-white text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">12</span>
+            <span className="bg-[#2563EB] text-white text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm">12</span>
           )}
         </a>
-        <a href="#" className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 border border-transparent transition-all duration-300", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
-          <HelpCircle className={cn("text-slate-400 group-hover:text-slate-700 group-hover:scale-105 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
+        <a href="#" className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-slate-50 hover:text-[#0F172A] transition-all duration-200", isCollapsed ? "justify-center p-2 rounded-xl mx-1" : "gap-3 px-3 py-2.5 mx-1 rounded-xl text-[14px]")}>
+          <HelpCircle className={cn("text-slate-400 group-hover:text-[#0F172A] transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
           {!isCollapsed && <span className="tracking-tight">Help & Support</span>}
           {isCollapsed && (
             <div className="absolute left-full ml-4 px-3 py-1.5 bg-slate-800 text-white text-[13px] font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 whitespace-nowrap shadow-lg">
@@ -175,8 +175,8 @@ export function Sidebar({ activeView, onNavigate, isCollapsed = false, onToggle 
             </div>
           )}
         </a>
-        <button className={cn("group relative flex items-center font-medium text-slate-500 hover:bg-red-50 hover:text-red-700 border border-transparent transition-all duration-300 text-left w-full", isCollapsed ? "justify-center p-1.5 xl:p-3 rounded-xl" : "gap-3 px-3 xl:px-4 py-1 xl:py-3 rounded-2xl text-[13.5px] xl:text-[14.5px]")}>
-          <LogOut className={cn("text-slate-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]")} strokeWidth={2} />
+        <button className={cn("group relative flex items-center font-medium text-[#64748B] hover:bg-red-50 hover:text-red-700 transition-all duration-200 text-left w-[calc(100%-8px)] mx-1", isCollapsed ? "justify-center p-2 rounded-xl" : "gap-3 px-3 py-2.5 rounded-xl text-[14px]")}>
+          <LogOut className={cn("text-slate-400 group-hover:text-red-500 transition-colors duration-200 flex-shrink-0", isCollapsed ? "h-[20px] w-[20px]" : "h-[18px] w-[18px]")} strokeWidth={2} />
           {!isCollapsed && <span className="tracking-tight">Logout</span>}
           {isCollapsed && (
             <div className="absolute left-full ml-4 px-3 py-1.5 bg-red-600 text-white text-[13px] font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 whitespace-nowrap shadow-lg">
