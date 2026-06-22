@@ -166,12 +166,12 @@ export function ProjectsDashboard() {
           </div>
 
           {/* TABS */}
-          <div className="flex gap-1.5 p-1.5 bg-[#F1F5F9]/80 backdrop-blur rounded-[16px] w-fit mt-[175px] mb-6 z-10 relative shadow-[inset_0_1px_4px_rgba(0,0,0,0.02)]">
+          <div className="flex gap-1.5 p-1.5 bg-[#F1F5F9]/80 backdrop-blur rounded-[16px] w-full xl:w-fit overflow-x-auto scrollbar-hide mt-[175px] mb-6 z-10 relative shadow-[inset_0_1px_4px_rgba(0,0,0,0.02)]">
              {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-2.5 text-[13px] font-bold whitespace-nowrap rounded-[12px] transition-all duration-200 ${
+                  className={`flex-1 xl:flex-none px-5 py-2.5 text-[13px] font-bold whitespace-nowrap rounded-[12px] transition-all duration-200 ${
                     activeTab === tab 
                       ? "bg-[#2B3674] text-white shadow-[0_2px_8px_rgba(15,23,42,0.15)]" 
                       : "text-[#64748B] hover:text-[#0F172A] hover:bg-white/40"
