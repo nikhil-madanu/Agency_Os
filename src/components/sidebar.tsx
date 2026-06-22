@@ -115,7 +115,7 @@ const mainNavItems = [
   { icon: CustomSettingsIcon, label: "Settings", href: "#" },
 ];
 
-export function Sidebar() {
+export function Sidebar({ activeView, onNavigate }: { activeView: string, onNavigate: (view: string) => void }) {
   return (
     <aside className="hidden lg:flex fixed left-2 top-3 bottom-3 z-40 w-[230px] bg-white flex-col py-5 px-5 overflow-hidden rounded-[32px] shadow-sm">
       <div className="flex flex-col flex-1">
@@ -168,14 +168,18 @@ export function Sidebar() {
             <a
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(item.label);
+              }}
               className={cn(
                 "flex items-center gap-3 px-4 py-2.5 rounded-2xl text-[14px] font-bold transition-all",
-                item.active 
+                activeView === item.label 
                   ? "bg-agency-blue/5 text-agency-blue" 
                   : "text-agency-textSecondary hover:bg-agency-bg hover:text-agency-textPrimary"
               )}
             >
-              <item.icon className="h-5 w-5" strokeWidth={item.active ? 2.5 : 2} />
+              <item.icon className="h-5 w-5" strokeWidth={activeView === item.label ? 2.5 : 2} />
               <span>{item.label}</span>
             </a>
           ))}
